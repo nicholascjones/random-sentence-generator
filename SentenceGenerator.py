@@ -4,7 +4,7 @@
 ## Nicholas Jones
 ## Course Project 1 -- English Sentence Generator
 
-#test comment
+#hey man
 
 #imports
 import random
