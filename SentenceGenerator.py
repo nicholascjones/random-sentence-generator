@@ -28,9 +28,9 @@ def NounPhrase():
 			n = random.randint(0,(len(modifier)-1) #picks random index
 			phrase += (modifier[n] + " ") #appends modifier and space to end of string
 		
-		
-		
-
+		#common noun implementation phase
+		n = random.randint(0,(len(common)-1) #picks random index
+		phrase += (common[n] + " ") #appends common noun to end of string
 	
 	return phrase #noun phrase returned here
 
