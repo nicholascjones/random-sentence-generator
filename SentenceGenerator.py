@@ -4,17 +4,15 @@
 ## Nicholas Jones
 ## Course Project 1 -- English Sentence Generator
 
-#hey man
-
 #imports
 import random
 
 
 #List Initialization for Parts of Speech
-proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat Jeffers','Notre Dame']
+proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat','Notre Dame',]
 common = ['dog','puppy','musician','player','campus']
 modifier = ['funny','stupid','weird','beautiful']
-verb = ['runs','is','plays','jumps','sings','walks','screams','yells','performs']
+verb = ['runs','is','plays','jumps','sings','walks','screams','yells','performs','kicks']
 prep = ['with','to','around','near','above','at']
 
 
@@ -79,14 +77,49 @@ def MakeSentence():
 #	x = x.capitalize() #capitalize first word in string
 	return x
 
-i = 0
-#Start with Noun Phrase
-print "\n"
+#prints number of sentences
+def NumSentences(n):
+	i = 0
+	while (i < 10):
+		print MakeSentence()
+		i+=1
+	print "\n" #newline needed
 
-while (i < 10):
-	print MakeSentence()
-	#	print "\n\n"
-	i+=1
+def AddWord():
+	print "Parts of speech are defined as follows:"
+	print "Proper Noun = 'proper', Common Noun = 'common', Verb = 'verb', Modifer = 'modifier', Preposition - 'prep'"
+	word = raw_input("What word would you like to input?\n")
+	pos = raw_input("What part of speech is this word?\n")
+
+	pos.append(word)
+	#except
+	return
+
+print "Hello, welcome to Nick's Random Sentence Generator!!"
+print "Enter an integer to randomly generate that many sentences" 
+print "Enter 'Q' to quit."
+response = 'x' #generic response as to not cause problems
+
+#main function execution
+while (response != 'Q'): #case switch kills it all
+
+	response = raw_input("What would you like to do?\n")
+	if response == 'Q':
+		break
+	elif response == '+':
+#		AddWord()
+		print "soon to be addword"
+	else: 
+		try:
+			n = int(response)
+			if n > 0:
+				NumSentences(n)
+			else:
+				print "Please enter a valid number."
+		except ValueError:
+			print "Invalid input."
+			continue
+		
 
 
 print "\n"
