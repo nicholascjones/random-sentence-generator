@@ -9,10 +9,10 @@ import random
 
 
 #List Initialization for Parts of Speech
-proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy']
-common = ['dog','puppy','musician']
+proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat Jeffers','Notre Dame']
+common = ['dog','puppy','musician','player','campus']
 modifier = ['funny','stupid','weird','beautiful']
-verb = ['runs','is','plays','jumps','sings','walks']
+verb = ['runs','is','plays','jumps','sings','walks','screams','yells','performs']
 prep = ['with','to','around','near','above','at']
 
 
@@ -62,8 +62,14 @@ def VerbPhrase():
 	phrase = verb[n] + " " + PrepPhrase()
 	return phrase
 
+	
+
+i = 0
 #Start with Noun Phrase
-print NounPhrase() + VerbPhrase()
+while (i < 10):
+	print NounPhrase() + VerbPhrase()
+	#	print "\n\n"
+	i+=1
 #print PrepPhrase()
 
 #print len(proper)
