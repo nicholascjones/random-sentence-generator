@@ -9,11 +9,11 @@ import random
 
 
 #List Initialization for Parts of Speech
-proper = ['Nick','Mara','Will','Cat','Alumni Hall']
+proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy']
 common = ['dog','puppy','musician']
 modifier = ['funny','stupid','weird','beautiful']
-verb = ['ran']
-prep = ['in','to','around','on','above']
+verb = ['runs','is','plays','jumps','sings','walks']
+prep = ['with','to','around','near','above','at']
 
 
 #functions
@@ -56,9 +56,15 @@ def PrepPhrase():
 		phrase = prep[n] + " " + NounPhrase()
 		return phrase
 
+def VerbPhrase():
+	rn = random.randint(0,1) #re-initializes random int
+	n = random.randint(0,(len(verb)-1)) #picks random index
+	phrase = verb[n] + " " + PrepPhrase()
+	return phrase
+
 #Start with Noun Phrase
-sent = NounPhrase()
-print PrepPhrase()
+print NounPhrase() + VerbPhrase()
+#print PrepPhrase()
 
 #print len(proper)
 #print proper[0]
