@@ -80,7 +80,7 @@ def MakeSentence():
 #prints number of sentences
 def NumSentences(n):
 	i = 0
-	while (i < 10):
+	while (i < n):
 		print MakeSentence()
 		i+=1
 	print "\n" #newline needed
@@ -90,9 +90,20 @@ def AddWord():
 	print "Proper Noun = 'proper', Common Noun = 'common', Verb = 'verb', Modifer = 'modifier', Preposition - 'prep'"
 	word = raw_input("What word would you like to input?\n")
 	pos = raw_input("What part of speech is this word?\n")
-
-	pos.append(word)
-	#except
+	print pos
+	try:
+		if pos == 'proper':
+			proper.append(word)
+		elif pos == 'common':
+			common.append(word)
+		elif pos == 'verb':
+			verb.append(word)
+		elif pos == 'modifier':
+			modifier.append(word)
+		elif pos == 'prep':
+			prep.append(word)
+	except AttributeError:
+		print "Sorry, that part of speech is invalid."
 	return
 
 print "Hello, welcome to Nick's Random Sentence Generator!!"
@@ -107,17 +118,17 @@ while (response != 'Q'): #case switch kills it all
 	if response == 'Q':
 		break
 	elif response == '+':
-#		AddWord()
-		print "soon to be addword"
+		AddWord()
 	else: 
 		try:
 			n = int(response)
+			print "\n"
 			if n > 0:
 				NumSentences(n)
 			else:
 				print "Please enter a valid number."
 		except ValueError:
-			print "Invalid input."
+			print "Invalid input. Please try again."
 			continue
 		
 
