@@ -19,7 +19,7 @@ prep = ['with','to','around','near','above','at']
 #functions
 
 #noun phrase takes no arguments as is first part of sentence
-def NounPhrase():
+def NounPhrase(case=0):
 
 	phrase = ""
 #	print phrase
@@ -31,10 +31,10 @@ def NounPhrase():
 		n = random.randint(0,(len(proper)-1)) #picks random index
 	#	print n
 	#	print proper[n]
-		phrase = proper[n] + " " #initializes to noun phrase plus space
+		phrase = proper[n] #initializes to noun phrase plus space
 
 	else: #if random int is 1, generate common noun phrase
-		phrase = "the " #initializes phrase with "The"
+		phrase = "The " #initializes phrase with "The"
 
 		rn = random.randint(0,1) #re-initializes random int
 		if rn == 1: #if random int is 1, need to include modifier
@@ -43,7 +43,9 @@ def NounPhrase():
 		
 		#common noun implementation phase
 		n = random.randint(0,(len(common)-1)) #picks random index
-		phrase += (common[n] + " ") #appends common noun to end of string
+		phrase += common[n] #appends common noun to end of string
+		if case == 1:
+			phrase = phrase.lower()
 	
 	return phrase #noun phrase returned here
 
@@ -53,23 +55,39 @@ def PrepPhrase():
 		return "" #return null string
 	else: 
 		n = random.randint(0,(len(prep)-1)) #picks random index of preposition
-		phrase = prep[n] + " " + NounPhrase()
+		phrase = " " + prep[n] + " " + NounPhrase(1)
 		return phrase
 
 def VerbPhrase():
 	rn = random.randint(0,1) #re-initializes random int
 	n = random.randint(0,(len(verb)-1)) #picks random index
-	phrase = verb[n] + " " + PrepPhrase()
+	phrase = " " + verb[n] + PrepPhrase()
 	return phrase
 
 	
+def MakeSentence():
+
+	x = NounPhrase() + VerbPhrase() #initialize sentence as such
+	rn = random.randint(0,8) #re-initializes random int
+	if rn == 0: #1/8 of time, use exclamation as punctuation
+		x += "!"
+	else: #7/8 of time, use period
+		x += "."
+
+#	x = x.capitalize() #capitalize first word in string
+	return x
 
 i = 0
 #Start with Noun Phrase
+print "\n"
+
 while (i < 10):
-	print NounPhrase() + VerbPhrase()
+	print MakeSentence()
 	#	print "\n\n"
 	i+=1
+
+
+print "\n"
 #print PrepPhrase()
 
 #print len(proper)
