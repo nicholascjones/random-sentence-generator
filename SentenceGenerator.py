@@ -18,7 +18,7 @@ prep = ['with','to','around','near','above','at']
 
 #functions
 
-#noun phrase takes no arguments as is first part of sentence
+#noun phrase takes argument to determine capitalization
 def NounPhrase(case=0):
 
 	phrase = ""
@@ -49,7 +49,7 @@ def NounPhrase(case=0):
 	
 	return phrase #noun phrase returned here
 
-def PrepPhrase():
+def PrepPhrase(): #prepositional phrase generator
 	rn = random.randint(0,1) #re-initializes random int
 	if rn == 0: #if random int is zero, no prepositional phrase
 		return "" #return null string
@@ -58,14 +58,14 @@ def PrepPhrase():
 		phrase = " " + prep[n] + " " + NounPhrase(1)
 		return phrase
 
-def VerbPhrase():
+def VerbPhrase(): #verb phrase generator
 	rn = random.randint(0,1) #re-initializes random int
 	n = random.randint(0,(len(verb)-1)) #picks random index
 	phrase = " " + verb[n] + PrepPhrase()
 	return phrase
 
 	
-def MakeSentence():
+def MakeSentence(): #makes sentence by combining noun and verb phrase
 
 	x = NounPhrase() + VerbPhrase() #initialize sentence as such
 	rn = random.randint(0,8) #re-initializes random int
@@ -73,11 +73,9 @@ def MakeSentence():
 		x += "!"
 	else: #7/8 of time, use period
 		x += "."
-
-#	x = x.capitalize() #capitalize first word in string
 	return x
 
-#prints number of sentences
+#prints number of sentences given as argument
 def NumSentences(n):
 	i = 0
 	while (i < n):
@@ -85,13 +83,16 @@ def NumSentences(n):
 		i+=1
 	print "\n" #newline needed
 
+#function to add word to the dictionary
 def AddWord():
+
+	#starts by giving instructions
 	print "Parts of speech are defined as follows:"
 	print "Proper Noun = 'proper', Common Noun = 'common', Verb = 'verb', Modifer = 'modifier', Preposition - 'prep'"
 	word = raw_input("What word would you like to input?\n")
 	pos = raw_input("What part of speech is this word?\n")
-	try:
-		if pos == 'proper':
+	try: #ensures input is valid
+		if pos == 'proper': #essential case switch to determine part of speech
 			proper.append(word)
 		elif pos == 'common':
 			common.append(word)
@@ -101,19 +102,23 @@ def AddWord():
 			modifier.append(word)
 		elif pos == 'prep':
 			prep.append(word)
-	except AttributeError:
+	except AttributeError: #if given invalid part of speech
 		print "Sorry, that part of speech is invalid."
 	return
 
+
+#de-facto main function generation
+
+#instructions
 print "Hello, welcome to Nick's Random Sentence Generator!!"
 print "Enter a positive integer to randomly generate that many sentences" 
 print "Enter '+' to add a word to the dictionary."
 print "Enter 'Q' to quit."
 response = 'x' #generic response as to not cause problems
 
-#main function execution
 while (response != 'Q'): #case switch kills it all
 
+	#prompt given with responses used to control flow
 	response = raw_input("What would you like to do?\n")
 	if response == 'Q':
 		break
@@ -133,11 +138,8 @@ while (response != 'Q'): #case switch kills it all
 		
 
 
-print "\n"
-#print PrepPhrase()
-
-#print len(proper)
-#print proper[0]
+print "\n" #newline easy to print
+#end execution
 
 
 
