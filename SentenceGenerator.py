@@ -9,7 +9,7 @@ import random
 
 
 #List Initialization for Parts of Speech
-proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat','Notre Dame','Bernie Sanders', 'Donald Trump', 'Jaylon Smith']
+proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Pat','Notre Dame','Bernie Sanders', 'Donald Trump', 'Jaylon Smith']
 common = ['dog','puppy','musician','player','campus','homework','computer','program','professor','friend','television','politician']
 modifier = ['funny','stupid','weird','beautiful']
 verb = ['runs','is','plays','jumps','sings','walks','screams','yells','performs','kicks']
@@ -87,6 +87,7 @@ def NumSentences(n):
 def AddWord():
 
 	#starts by giving instructions
+	print "Note: this generator only supports singular nouns and singular conjugations of verbs."
 	print "Parts of speech are defined as follows:"
 	print "Proper Noun = 'proper', Common Noun = 'common', Verb = 'verb', Modifer = 'modifier', Preposition - 'prep'"
 	word = raw_input("What word would you like to input?\n")
@@ -110,10 +111,13 @@ def AddWord():
 #de-facto main function generation
 
 #instructions
+print "\n"
 print "Hello, welcome to Nick's Random Sentence Generator!!"
+print "\n"
 print "Enter a positive integer to randomly generate that many sentences" 
 print "Enter '+' to add a word to the dictionary."
 print "Enter 'Q' to quit."
+print "\n"
 response = 'x' #generic response as to not cause problems
 
 while (response != 'Q'): #case switch kills it all
