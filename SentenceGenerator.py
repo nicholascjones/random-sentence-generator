@@ -9,8 +9,8 @@ import random
 
 
 #List Initialization for Parts of Speech
-proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat','Notre Dame',]
-common = ['dog','puppy','musician','player','campus']
+proper = ['Nick','Alumni Hall','Sara','Pablo','Kanye','Yeezy','Pat','Notre Dame','Bernie Sanders', 'Donald Trump', 'Jaylon Smith']
+common = ['dog','puppy','musician','player','campus','homework','computer','program','professor','friend','television','politician']
 modifier = ['funny','stupid','weird','beautiful']
 verb = ['runs','is','plays','jumps','sings','walks','screams','yells','performs','kicks']
 prep = ['with','to','around','near','above','at']
@@ -90,7 +90,6 @@ def AddWord():
 	print "Proper Noun = 'proper', Common Noun = 'common', Verb = 'verb', Modifer = 'modifier', Preposition - 'prep'"
 	word = raw_input("What word would you like to input?\n")
 	pos = raw_input("What part of speech is this word?\n")
-	print pos
 	try:
 		if pos == 'proper':
 			proper.append(word)
@@ -107,7 +106,8 @@ def AddWord():
 	return
 
 print "Hello, welcome to Nick's Random Sentence Generator!!"
-print "Enter an integer to randomly generate that many sentences" 
+print "Enter a positive integer to randomly generate that many sentences" 
+print "Enter '+' to add a word to the dictionary."
 print "Enter 'Q' to quit."
 response = 'x' #generic response as to not cause problems
 
